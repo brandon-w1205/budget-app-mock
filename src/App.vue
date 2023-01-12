@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import Dashboard from './components/Dashboard.vue'
+import DoughnutChart from './components/DoughnutChart.vue';
 </script>
 
 <template>
   <!-- <HelloWorld msg="Vite + Vue + TS" /> -->
   <Dashboard />
+  <!-- <DoughnutChart /> -->
 </template>
 
 <style scoped>
