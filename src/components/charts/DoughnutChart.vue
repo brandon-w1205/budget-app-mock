@@ -12,6 +12,8 @@ import { Doughnut } from 'vue-chartjs'
 
 ChartJS.register(CategoryScale, LinearScale, ArcElement, Title, Tooltip, Legend)
 
+ChartJS.defaults.color = "#FFFFFF"
+
 export default {
     name: 'DoughnutChart',
     components: {
@@ -24,12 +26,12 @@ export default {
                 datasets: [
                     { 
                         data: [40, 20, 12],
-                        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'] 
+                        backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16']
                     }
                 ]
             },
             options: {
-                responsive: false
+                responsive: true
             }
         }
     }
