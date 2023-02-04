@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JavaBackApplication {
 
 	public static void main(String[] args) {
-//		SpringApplication.run(JavaBackApplication.class, args);
+		SpringApplication.run(JavaBackApplication.class, args);
 		Template testingAnExample = new Template("Hello");
 
 		System.out.println(testingAnExample);
