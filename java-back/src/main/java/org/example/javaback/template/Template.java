@@ -8,11 +8,11 @@ public class Template {
         this.anExample = anExample;
     }
 
-    public String getAnExample() {
+    public String getExample() {
         return anExample;
     }
 
-    public void setAnExample(String anExample) {
+    public void setExample(String anExample) {
         this.anExample = anExample;
     }
 

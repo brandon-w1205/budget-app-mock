@@ -9,9 +9,7 @@ public class JavaBackApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(JavaBackApplication.class, args);
-		Template testingAnExample = new Template("Hello");
-
-		System.out.println(testingAnExample);
+		System.out.println("Server running on localhost:8080");
 	}
 
 }

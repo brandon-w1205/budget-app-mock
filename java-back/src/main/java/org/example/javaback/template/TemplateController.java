@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TemplateController {
+    Template theExample = new Template("Hello World");
 
     @RequestMapping("/")
     public String getHelloWorld() {
-        return "Hello World";
+        return theExample.getExample();
     }
 }
