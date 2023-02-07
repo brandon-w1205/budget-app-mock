@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+import java.util.ArrayList;
+
 @Entity
 public class Account {
 
@@ -13,10 +15,32 @@ public class Account {
     private int id;
     private int startingBalance;
     private int goal;
-    private int expenses;
+    private int expensesTotal;
+//    Planned expenses class
+//    private ArrayList<Expense> expenses = new ArrayList<Expense>();
 
-    public Account(int startingBalance, int goal, int expenses) {
+    public Account() {
 
     }
+
+    public Account(int startingBalance, int goal, int expensesTotal) {
+        super();
+        this.startingBalance = startingBalance;
+        this.goal = goal;
+        this.expensesTotal = expensesTotal;
+        this.id = id;
+    }
+
+    public int getStartingBalance() { return startingBalance; }
+
+    public void setStartingBalance(int startingBalance) { this.startingBalance = startingBalance; }
+
+    public int getGoal() { return goal; }
+
+    public void setGoal(int goal) { this.goal = goal; }
+
+    public int getExpensesTotal() { return expensesTotal; }
+
+    public void setExpensesTotal(int expensesTotal) { this.expensesTotal = expensesTotal; }
 
 }
