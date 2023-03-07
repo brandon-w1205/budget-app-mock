@@ -13,6 +13,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String username;
     private int startingBalance;
     private int goal;
     private int expensesTotal;
@@ -23,13 +24,18 @@ public class Account {
 
     }
 
-    public Account(int startingBalance, int goal, int expensesTotal) {
+    public Account(String username, int startingBalance, int goal, int expensesTotal) {
         super();
+        this.username = username;
         this.startingBalance = startingBalance;
         this.goal = goal;
         this.expensesTotal = expensesTotal;
         this.id = id;
     }
+
+    public String getUsername() { return username; }
+
+    public void setUsername(String username) { this.username = username; }
 
     public int getStartingBalance() { return startingBalance; }
 
