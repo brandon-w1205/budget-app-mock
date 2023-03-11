@@ -20,7 +20,7 @@ public class BudgetController {
     }
 
 //    GET ONE method for one account by username
-    @RequestMapping("/budgets/{username}")
+    @RequestMapping("/budgets/{name}")
     public Budget getBudget(@PathVariable String name) {
        return budgetService.getBudget(name);
     }
@@ -38,7 +38,7 @@ public class BudgetController {
     }
 
 //    DELETE method to delete an account by username. Can later change from front-end to request username and password before deletion
-    @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{username}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{name}")
     public void deleteBudget(@PathVariable String name) {
         budgetService.deleteBudget(name);
     }

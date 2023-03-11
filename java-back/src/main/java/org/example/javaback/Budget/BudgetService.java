@@ -12,7 +12,7 @@ public class BudgetService {
     @Autowired
     private BudgetRepository budgetRepository;
 
-//    GET method for all accounts
+//    GET method for all budgets
     public List<Budget> getAllBudgets() {
         List<Budget> budgets = new ArrayList<>();
         budgetRepository.findAll().forEach(budgets::add);
@@ -21,14 +21,14 @@ public class BudgetService {
     }
 
 //    GET ONE method for one account
-    public Budget getBudget(String username) {
-        Budget anBudget = new Budget();
+    public Budget getBudget(String name) {
+        Budget aBudget = new Budget();
         for(Budget budget : getAllBudgets()) {
-            if(username.equals(budget.getUsername())) {
-                anBudget = budget;
+            if(name.equals(budget.getName())) {
+                aBudget = budget;
             }
         }
-        return anBudget;
+        return aBudget;
     }
 
 //    POST method to create a new account
@@ -42,7 +42,7 @@ public class BudgetService {
     }
 
 //    DELETE method to delete an account
-    public void deleteBudget(String username) {
-        getAllBudgets().removeIf(budget -> budget.getUsername().equals(username));
+    public void deleteBudget(String name) {
+        getAllBudgets().removeIf(budget -> budget.getName().equals(name));
     }
 }
