@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 
+
 let budgets = ref([])
 
-async function allBudgets() {
-    await fetch("http://localhost:8080/budgets", { method: "GET" , mode: 'no-cors' })
-        // .then(res => console.log(res.json()))
+function allBudgets() {
+    fetch("http://localhost:8080/budgets")
         .then(res => res.json())
         .then(data => console.log(data))
         // .catch(err => console.log(err.message))
     }
 
-allBudgets()
+    allBudgets()
 
 onMounted(() => {
 
-
+   
    
 
 })

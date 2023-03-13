@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class BudgetController {
 
@@ -14,7 +14,8 @@ public class BudgetController {
 
 
 //    GET method for all accounts
-    @RequestMapping("/budgets")
+
+    @GetMapping("/budgets")
     public List<Budget> getAllBudgets() {
         return budgetService.getAllBudgets();
     }
