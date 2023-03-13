@@ -2,20 +2,20 @@
 import { ref, onMounted } from 'vue'
 
 
-let budgets = ref([])
+let budgets = ref()
 
 function allBudgets() {
     fetch("http://localhost:8080/budgets")
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(actualD => budgets.value = actualD)
         // .catch(err => console.log(err.message))
     }
 
-    allBudgets()
+    
 
 onMounted(() => {
 
-   
+    allBudgets()
    
 
 })
@@ -31,8 +31,10 @@ onMounted(() => {
     </div>
 
     <div>
-        <p>{{ budgets.map(
-            budget => { return budget }
-        ) }}</p>
+        <p v-for="object in budgets" :key="object">
+            {{ object.name }}
+            {{ object.amount }}
+            {{ object.expense }}
+        </p>
     </div>
 </template>
