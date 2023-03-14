@@ -13,9 +13,9 @@ public class ExpenseService {
     private ExpenseRepository expenseRepository;
 
 //    GET all expenses
-    public List<Expense> getAllExpenses() {
+    public List<Expense> getAllExpenses(Integer budget_id) {
         List<Expense> expenses = new ArrayList<>();
-        expenseRepository.findAll().forEach(expenses::add);
+        expenses.addAll(expenseRepository.findByBudgetId(budget_id));
         return expenses;
     }
 

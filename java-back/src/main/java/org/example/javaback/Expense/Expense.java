@@ -1,9 +1,7 @@
 package org.example.javaback.Expense;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.example.javaback.Budget.Budget;
 
 import java.util.ArrayList;
 
@@ -17,16 +15,25 @@ public class Expense {
     private ArrayList<String> format = new ArrayList<String>();
     private int amountNum;
 
+    @ManyToOne
+    @JoinColumn(name = "budget_id")
+    private Budget budget;
+
+    public Budget getBudget() { return budget; }
+
+    public void setBudget(Budget budget) { this.budget = budget; }
+
     public Expense() {
 
     }
 
-    public Expense(Integer id, String name, ArrayList<String> format, int amountNum) {
+    public Expense(Integer id, String name, ArrayList<String> format, int amountNum, Integer budget_id) {
         super();
         this.id = id;
         this.name = name;
         this.format = format;
         this.amountNum = amountNum;
+        this.budget = new Budget(budget_id, "", 0);
     }
 
     public Integer getId() {
@@ -60,4 +67,7 @@ public class Expense {
     public void setAmountNum(int amountNum) {
         this.amountNum = amountNum;
     }
+
+
+
 }
