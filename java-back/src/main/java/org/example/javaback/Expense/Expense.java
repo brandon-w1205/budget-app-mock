@@ -12,7 +12,7 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private ArrayList<String> format = new ArrayList<String>();
+    private String format;
     private int amountNum;
 
     @ManyToOne
@@ -27,7 +27,7 @@ public class Expense {
 
     }
 
-    public Expense(Integer id, String name, ArrayList<String> format, int amountNum, Integer budget_id) {
+    public Expense(Integer id, String name, String format, int amountNum, Integer budget_id) {
         super();
         this.id = id;
         this.name = name;
@@ -52,11 +52,11 @@ public class Expense {
         this.name = name;
     }
 
-    public ArrayList<String> getFormat() {
+    public String getFormat() {
         return format;
     }
 
-    public void setFormat(ArrayList<String> format) {
+    public void setFormat(String format) {
         this.format = format;
     }
 

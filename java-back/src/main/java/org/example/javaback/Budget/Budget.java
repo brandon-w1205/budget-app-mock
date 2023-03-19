@@ -16,8 +16,8 @@ public class Budget {
     private Integer amount;
 
 
-    @OneToMany(mappedBy = "budget")
-    public Set<Expense> expenses;
+    @OneToMany
+    private Set<Expense> expenses;
 
     public Set<Expense> getExpenses() {
         return expenses;
