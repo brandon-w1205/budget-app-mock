@@ -12,6 +12,8 @@ import DoughnutChart from './components/charts/DoughnutChart.vue';
   |
   <router-link to="/dashboard">Dashboard</router-link>
   <router-view></router-view>
+
+  <!-- testing -->
   
 </template>
 
