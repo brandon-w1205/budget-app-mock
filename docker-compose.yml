@@ -1,0 +1,50 @@
+version: '3.9.1'
+services:
+  frontend:
+    build: ./vue-front
+    image: vue-front
+    container_name: vue-front
+    ports:
+      - 5173:5173
+    depends_on:
+      - API
+    networks:
+      - frontback
+
+  API:
+    image: 'java-back.jar'
+    ports:
+      - "8080:8080"
+    depends_on:
+      PostgreSQL:
+        condition: service_healthy
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://PostgreSQL:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=password
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks:
+      - frontback
+      - backdb
+
+  PostgreSQL:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backdb
+
+networks:
+  backdb:
+    driver: bridge
+  frontback:
+    driver: bridge
