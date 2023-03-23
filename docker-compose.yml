@@ -12,7 +12,8 @@ services:
       - frontback
 
   API:
-    image: 'java-back.jar'
+    build: ./java-back
+    image: java-back.jar
     ports:
       - "8080:8080"
     depends_on:
@@ -28,6 +29,7 @@ services:
       - backdb
 
   PostgreSQL:
+    build: postgres:15
     image: postgres:15
     ports:
       - "5432:5432"
