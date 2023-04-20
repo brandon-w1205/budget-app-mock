@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.example.javaback.Expense.Expense;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -16,14 +17,14 @@ public class Budget {
     private Integer amount;
 
 
-    @OneToMany
-    private Set<Expense> expenses;
+    @OneToMany(mappedBy="budget")
+    private List<Expense> expenses = new ArrayList<>();
 
-    public Set<Expense> getExpenses() {
+    public List<Expense> getExpenses() {
         return expenses;
     }
 
-    public void setExpenses(Set<Expense> expenses) {
+    public void setExpenses(List<Expense> expenses) {
         this.expenses = expenses;
     }
 
@@ -40,12 +41,13 @@ public class Budget {
     }
 
 //    public Budget(String name, Integer time_id, Integer amount) {
-    public Budget(Integer id, String name, Integer amount) {
+    public Budget(Integer id, String name, Integer amount, List<Expense> expenses) {
         super();
         this.id = id;
         this.name = name;
 //        this.time = new Time(time_id, "", "");
         this.amount = amount;
+        this.expenses = expenses;
     }
 
     public Integer getId() {

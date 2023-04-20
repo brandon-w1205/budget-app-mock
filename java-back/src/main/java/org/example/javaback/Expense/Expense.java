@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.example.javaback.Budget.Budget;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 public class Expense {
@@ -27,13 +28,13 @@ public class Expense {
 
     }
 
-    public Expense(Integer id, String name, String format, int amountNum, Integer budget_id) {
+    public Expense(Integer id, String name, String format, int amountNum, Budget budget) {
         super();
         this.id = id;
         this.name = name;
         this.format = format;
         this.amountNum = amountNum;
-        this.budget = new Budget(budget_id, "", 0);
+        this.budget = budget;
     }
 
     public Integer getId() {

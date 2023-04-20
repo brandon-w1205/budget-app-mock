@@ -1,6 +1,5 @@
 package org.example.javaback;
 
-import org.example.javaback.template.Template;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
