@@ -3,8 +3,8 @@ package org.example.javaback.Expense;
 import jakarta.persistence.*;
 import org.example.javaback.Budget.Budget;
 
-import java.util.ArrayList;
-import java.util.Set;
+// import java.util.ArrayList;
+// import java.util.Set;
 
 @Entity
 public class Expense {

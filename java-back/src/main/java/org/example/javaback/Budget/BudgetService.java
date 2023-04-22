@@ -3,7 +3,7 @@ package org.example.javaback.Budget;
 import java.util.List;
 import java.util.ArrayList;
 
-import org.example.javaback.Expense.Expense;
+// import org.example.javaback.Expense.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,6 @@ public class BudgetService {
     public List<Budget> getAllBudgets() {
         List<Budget> budgets = new ArrayList<>();
         budgetRepository.findAll().forEach(budgets::add);
-//        List<Course> courses = new ArrayList<>(courseRepository.findByTopicId(topic_id));
         return budgets;
     }
 
@@ -35,11 +34,7 @@ public class BudgetService {
 // GET ONE method by id
     public Budget getBudgetById(Integer id) {
         Budget aBudget = new Budget();
-        for(Budget budget : getAllBudgets()) {
-            if(id.equals(budget.getId())) {
-                aBudget = budget;
-            }
-        }
+        aBudget = budgetRepository.findById(id).get();
         return aBudget;
     }
 

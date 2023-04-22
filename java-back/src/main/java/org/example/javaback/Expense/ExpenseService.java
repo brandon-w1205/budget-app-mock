@@ -19,6 +19,12 @@ public class ExpenseService {
         return expenses;
     }
 
+    // public List<Expense> getAllExpenses(String name) {
+    //     List<Expense> expenses = new ArrayList<>();
+    //     expenses.addAll(expenseRepository.findByName(name));
+    //     return expenses;
+    // }
+
 //    GET a single expense
     public Optional<Expense> getExpense(Integer id) {
         return expenseRepository.findById(id);

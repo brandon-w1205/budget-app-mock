@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface ExpenseRepository extends CrudRepository<Expense, Integer> {
     public List<Expense> findByBudgetId(Integer budget_id);
-
+    public List<Expense> findByName(String name);
 }

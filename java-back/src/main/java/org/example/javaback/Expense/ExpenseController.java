@@ -22,6 +22,11 @@ public class ExpenseController {
         return expenseService.getAllExpenses(budget_id);
     }
 
+    // @RequestMapping("/budgets/{name}/expenses")
+    // public List<Expense> getAllExpenses(@PathVariable String name) {
+    //     return expenseService.getAllExpenses(name);
+    // }
+
     @RequestMapping(value = "/budgets/{budget_id}/expenses", method = RequestMethod.POST)
     public void addExpense(@RequestBody Expense expense, @PathVariable Integer budget_id) {
         Budget budget = budgetService.getBudgetById(budget_id);
