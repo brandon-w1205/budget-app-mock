@@ -22,10 +22,10 @@ public class BudgetController {
     }
 
 //    GET ONE method for one account by name
-    // @RequestMapping("/budgets/{name}")
-    // public Budget getBudget(@PathVariable String name) {
-    //    return budgetService.getBudget(name);
-    // }
+    @RequestMapping("/budgets/{name}")
+    public Budget getBudget(@PathVariable String name) {
+       return budgetService.getBudget(name);
+    }
 
 //  GET ONE method for budget by id
     @RequestMapping("/budgets/{budget_id}")
