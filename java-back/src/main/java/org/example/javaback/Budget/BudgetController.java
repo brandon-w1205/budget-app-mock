@@ -1,8 +1,9 @@
 package org.example.javaback.Budget;
 
 import java.util.List;
+// import java.util.Optional;
 
-import org.example.javaback.Expense.Expense;
+// import org.example.javaback.Expense.Expense;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,10 +23,10 @@ public class BudgetController {
     }
 
 //    GET ONE method for one account by name
-    @RequestMapping("/budgets/{name}")
-    public Budget getBudget(@PathVariable String name) {
-       return budgetService.getBudget(name);
-    }
+    // @RequestMapping("/budgets/{name}")
+    // public Budget getBudget(@PathVariable String name) {
+    //    return budgetService.getBudget(name);
+    // }
 
 //  GET ONE method for budget by id
     @RequestMapping("/budgets/{budget_id}")
@@ -51,12 +52,4 @@ public class BudgetController {
         budgetService.deleteBudget(name);
     }
 
-
-// TESTING
-
-    @RequestMapping("/budgets/{name}/theExpenses")
-    public List<Expense> getBudgetExpenses(@PathVariable String name) {
-        Budget budget = budgetService.getBudget(name);
-        return budget.getExpenses();
-    }
 }

@@ -22,24 +22,40 @@ public class ExpenseController {
         return expenseService.getAllExpenses(budget_id);
     }
 
+    @RequestMapping("/budgets/{budget_id}/expenses/{id}")
+    public Expense getExpense(@PathVariable Integer budget_id, @PathVariable Integer id) {
+        // List<Expense> allExpenses = expenseService.getAllExpenses(budget_id);
+        return expenseService.getExpense(budget_id, id);
+    }
+
     // @RequestMapping("/budgets/{name}/expenses")
     // public List<Expense> getAllExpenses(@PathVariable String name) {
     //     return expenseService.getAllExpenses(name);
     // }
 
+    // @RequestMapping(value = "/budgets/{budget_id}/expenses", method = RequestMethod.POST)
+    // public void addExpense(@RequestBody Expense expense, @PathVariable Integer budget_id) {
+    //     Budget budget = budgetService.getBudgetById(budget_id);
+    //     expense.setBudget(budget);
+    //     expenseService.addExpense(expense);
+    //     budget.getExpenses().add(expense);
+    //     budgetService.updateBudget(budget);
+    // }
+
     @RequestMapping(value = "/budgets/{budget_id}/expenses", method = RequestMethod.POST)
     public void addExpense(@RequestBody Expense expense, @PathVariable Integer budget_id) {
         Budget budget = budgetService.getBudgetById(budget_id);
+        System.out.println(budget);
         expense.setBudget(budget);
         expenseService.addExpense(expense);
-        budget.getExpenses().add(expense);
-        budgetService.updateBudget(budget);
+        // budget.getExpenses().add(expense);
+        // budgetService.updateBudget(budget);
     }
 
     @RequestMapping(value = "/budgets/{budget_id}/expenses/{id}", method = RequestMethod.PUT)
     public void updateExpense(@RequestBody Expense expense, @PathVariable Integer id, @PathVariable Integer budget_id) {
-        Budget budget = budgetService.getBudgetById(budget_id);
-        expense.setBudget(budget);
+        // Budget budget = budgetService.getBudgetById(budget_id);
+        // expense.setBudget(budget);
         expenseService.updateExpense(expense);
     }
 

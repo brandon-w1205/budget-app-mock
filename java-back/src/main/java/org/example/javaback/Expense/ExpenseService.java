@@ -5,14 +5,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ExpenseService {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-//    GET all expenses
+    // GET all expenses
     public List<Expense> getAllExpenses(Integer budget_id) {
         List<Expense> expenses = new ArrayList<>();
         expenses.addAll(expenseRepository.findByBudgetId(budget_id));
@@ -20,27 +19,33 @@ public class ExpenseService {
     }
 
     // public List<Expense> getAllExpenses(String name) {
-    //     List<Expense> expenses = new ArrayList<>();
-    //     expenses.addAll(expenseRepository.findByName(name));
-    //     return expenses;
+    // List<Expense> expenses = new ArrayList<>();
+    // expenses.addAll(expenseRepository.findByName(name));
+    // return expenses;
     // }
 
-//    GET a single expense
-    public Optional<Expense> getExpense(Integer id) {
-        return expenseRepository.findById(id);
+    // GET ONE method for one account
+    public Expense getExpense(Integer budget_id, Integer id) {
+        Expense anExpense = new Expense();
+        for (Expense expense : getAllExpenses(budget_id)) {
+            if (id.equals(expense.getId())) {
+                anExpense = expense;
+            }
+        }
+        return anExpense;
     }
 
-//    CREATE a single topic
+    // CREATE a single topic
     public void addExpense(Expense expense) {
         expenseRepository.save(expense);
     }
 
-//    UPDATE expense
+    // UPDATE expense
     public void updateExpense(Expense expense) {
         expenseRepository.save(expense);
     }
 
-//    DELETE expense
+    // DELETE expense
     public void deleteExpense(Integer id) {
         expenseRepository.deleteById(id);
     }

@@ -29,6 +29,7 @@ public class Expense {
     }
 
     public Expense(Integer id, String name, String format, int amountNum, Budget budget) {
+    // public Expense(Integer id, String name, String format, int amountNum) {
         super();
         this.id = id;
         this.name = name;
