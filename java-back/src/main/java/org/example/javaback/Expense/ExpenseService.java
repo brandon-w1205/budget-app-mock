@@ -57,7 +57,13 @@ public class ExpenseService {
     }
 
     // DELETE expense
-    public void deleteExpense(Integer id) {
-        expenseRepository.deleteById(id);
+    public void deleteExpense(Integer budget_id, Integer id) {
+        try {
+            if (expenseRepository.findById(id).get().getBudget().getId().equals(budget_id)) {
+                expenseRepository.deleteById(id);
+            }
+        } catch (Exception e) {
+            System.out.println("Something went wrong.");
+        }
     }
 }

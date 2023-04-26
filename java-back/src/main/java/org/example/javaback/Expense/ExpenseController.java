@@ -57,6 +57,6 @@ public class ExpenseController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{budget_id}/expenses/{id}")
     public void deleteExpense(@PathVariable Integer budget_id, @PathVariable Integer id) {
-        expenseService.deleteExpense(id);
+        expenseService.deleteExpense(budget_id, id);
     }
 }
