@@ -57,6 +57,19 @@ public class BudgetService {
 
 //    DELETE method to delete an account
     public void deleteBudget(Integer id) {
-        budgetRepository.deleteById(id);
+        // if (budgetRepository.existsById(id)) {
+        //     budgetRepository.deleteById(id);
+        // } else {
+        //     System.out.println("Budget does not exist by id: " + id);
+        // }
+        try {
+            budgetRepository.deleteById(id);
+        } catch (Exception e) {
+            if (!budgetRepository.existsById(id)) {
+                System.out.println("Budget does not exist by id: " + id);
+            } else {
+                System.out.println("Something went wrong.");
+            }
+        }
     }
 }

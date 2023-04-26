@@ -49,10 +49,10 @@ public class ExpenseController {
     }
 
     @RequestMapping(value = "/budgets/{budget_id}/expenses/{id}", method = RequestMethod.PUT)
-    public void updateExpense(@RequestBody Expense expense, @PathVariable Integer id, @PathVariable Integer budget_id) {
+    public void updateExpense(@RequestBody Expense expense, @PathVariable Integer budget_id, @PathVariable Integer id) {
         // Budget budget = budgetService.getBudgetById(budget_id);
         // expense.setBudget(budget);
-        expenseService.updateExpense(expense);
+        expenseService.updateExpense(expense, budget_id, id);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{budget_id}/expenses/{id}")

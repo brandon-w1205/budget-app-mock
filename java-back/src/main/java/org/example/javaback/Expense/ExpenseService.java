@@ -41,8 +41,19 @@ public class ExpenseService {
     }
 
     // UPDATE expense
-    public void updateExpense(Expense expense) {
-        expenseRepository.save(expense);
+    public void updateExpense(Expense expense, Integer budget_id, Integer id) {
+        try {
+            Expense anExpense = expenseRepository.findById(id).get();
+            if (anExpense.getBudget().getId().equals(budget_id)) {
+                System.out.println("Hello");
+                anExpense.setName(expense.getName());
+                anExpense.setFormat(expense.getFormat());
+                anExpense.setAmountNum(expense.getAmountNum());
+            }
+            expenseRepository.save(anExpense);
+        } catch (Exception e) {
+            System.out.println("Something went wrong.");
+        }
     }
 
     // DELETE expense
