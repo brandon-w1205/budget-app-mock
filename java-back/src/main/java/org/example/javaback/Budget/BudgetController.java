@@ -35,21 +35,26 @@ public class BudgetController {
     }
 
 //    POST method to create one account
-    @RequestMapping(method = RequestMethod.POST, value = "/budget")
+    @RequestMapping(method = RequestMethod.POST, value = "/budgets")
     public void addBudget(@RequestBody Budget budget) {
         budgetService.addBudget(budget);
     }
 
 //    PUT method to edit an account's details
-    @RequestMapping(method = RequestMethod.PUT, value = "/budget")
+    // @RequestMapping(method = RequestMethod.PUT, value = "/budgets/{id}")
+    // public void updateBudget(@RequestBody Budget budget, @PathVariable Integer id) {
+    //     budgetService.updateBudget(budget, id);
+    // }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/budgets")
     public void updateBudget(@RequestBody Budget budget) {
         budgetService.updateBudget(budget);
     }
 
 //    DELETE method to delete an account by username. Can later change from front-end to request username and password before deletion
-    @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{name}")
-    public void deleteBudget(@PathVariable String name) {
-        budgetService.deleteBudget(name);
+    @RequestMapping(method = RequestMethod.DELETE, value = "/budgets/{id}")
+    public void deleteBudget(@PathVariable Integer id) {
+        budgetService.deleteBudget(id);
     }
 
 }

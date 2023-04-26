@@ -1,15 +1,18 @@
 package org.example.javaback.Budget;
 
 import jakarta.persistence.*;
-// import org.example.javaback.Expense.Expense;
+import org.example.javaback.Expense.Expense;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-// import java.util.ArrayList;
-// import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 // import java.util.Set;
 
 @Entity
 public class Budget {
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -18,7 +21,8 @@ public class Budget {
 
 
     // @OneToMany(mappedBy="budget")
-    // @OneToMany
+    
+    // @OneToMany(cascade = CascadeType.REMOVE)
     // private List<Expense> expenses = new ArrayList<>();
 
     // public List<Expense> getExpenses() {
@@ -36,7 +40,6 @@ public class Budget {
 
 
 //    private ArrayList<Expense> expenses = new ArrayList<Expense>();
-
     public Budget() {
 
     }

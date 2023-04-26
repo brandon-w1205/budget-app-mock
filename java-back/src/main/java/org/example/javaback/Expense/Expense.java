@@ -2,6 +2,8 @@ package org.example.javaback.Expense;
 
 import jakarta.persistence.*;
 import org.example.javaback.Budget.Budget;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 // import java.util.ArrayList;
 // import java.util.Set;
@@ -16,6 +18,7 @@ public class Expense {
     private String format;
     private int amountNum;
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToOne
     @JoinColumn(name = "budget_id")
     private Budget budget;

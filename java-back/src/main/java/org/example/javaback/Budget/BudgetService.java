@@ -1,6 +1,7 @@
 package org.example.javaback.Budget;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.ArrayList;
 
 // import org.example.javaback.Expense.Expense;
@@ -44,12 +45,18 @@ public class BudgetService {
     }
 
 //    PUT method to edit an account
+    // public void updateBudget(Budget budget, Integer id) {
+    //     Budget aBudget = budgetRepository.findById(id).get();
+    //     aBudget.setName(budget.getName());
+    //     aBudget.setAmount(budget.getAmount());
+    //     budgetRepository.save(aBudget);
+    // }
     public void updateBudget(Budget budget) {
         budgetRepository.save(budget);
     }
 
 //    DELETE method to delete an account
-    public void deleteBudget(String name) {
-        getAllBudgets().removeIf(budget -> budget.getName().equals(name));
+    public void deleteBudget(Integer id) {
+        budgetRepository.deleteById(id);
     }
 }

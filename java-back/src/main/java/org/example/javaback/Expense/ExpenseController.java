@@ -24,7 +24,6 @@ public class ExpenseController {
 
     @RequestMapping("/budgets/{budget_id}/expenses/{id}")
     public Expense getExpense(@PathVariable Integer budget_id, @PathVariable Integer id) {
-        // List<Expense> allExpenses = expenseService.getAllExpenses(budget_id);
         return expenseService.getExpense(budget_id, id);
     }
 
@@ -45,11 +44,8 @@ public class ExpenseController {
     @RequestMapping(value = "/budgets/{budget_id}/expenses", method = RequestMethod.POST)
     public void addExpense(@RequestBody Expense expense, @PathVariable Integer budget_id) {
         Budget budget = budgetService.getBudgetById(budget_id);
-        System.out.println(budget);
         expense.setBudget(budget);
         expenseService.addExpense(expense);
-        // budget.getExpenses().add(expense);
-        // budgetService.updateBudget(budget);
     }
 
     @RequestMapping(value = "/budgets/{budget_id}/expenses/{id}", method = RequestMethod.PUT)
