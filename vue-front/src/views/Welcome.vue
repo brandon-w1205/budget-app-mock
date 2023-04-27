@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-
+import GetStarted from '../components/GetStarted.vue';
 
 let budgets = ref()
 
@@ -26,7 +26,7 @@ onMounted(() => {
 <template>
     <div class="home">
         <h1>Home</h1>
-        <p></p>
+        <GetStarted />
         <router-link to="/dashboard">Go to Dashboard</router-link>
     </div>
 

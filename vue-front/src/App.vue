@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 import GetStarted from './components/GetStarted.vue'
 import Dashboard from './components/Dashboard.vue'
 import DoughnutChart from './components/charts/DoughnutChart.vue';
